@@ -17,8 +17,10 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'cat ./deploy.sh' || true
-                sh 'echo "Deploying..."'
+            catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh 'cat ./deploy.sh' || true
+             }
+sh 'echo "Deploying..."'
                 sh 'mv testfile.txt /tmp'
                 sh 'ls -l /tmp'
             }
