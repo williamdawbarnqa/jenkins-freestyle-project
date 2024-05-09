@@ -1,11 +1,20 @@
-Pipeline{
-  agent any
-  stages{
-    stage("run script"){
-      steps{
-        sh 'chmod +x ./example.sh'
-        sh './example.sh'
-      }
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                //
+            }
+        }
+        stage('Test') {
+            steps {
+                //
+            }
+        }
+        stage('Deploy') {
+            steps {
+                //
+            }
+        }
     }
-  }
 }
