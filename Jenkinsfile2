@@ -17,11 +17,16 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-               
+                sh 'cat ./deploy.sh' || true
                 sh 'echo "Deploying..."'
                 sh 'mv testfile.txt /tmp'
                 sh 'ls -l /tmp'
             }
         }
+        stage('Bananas'){
+            steps {
+                sh 'echo "Bananas!"'
+            }
+        }   
     }
 }
